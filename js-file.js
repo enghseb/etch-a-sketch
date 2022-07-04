@@ -23,7 +23,7 @@ function createSquare(squaresPerSide) {
 squaresPerSide = 35
 
 function createGrid(squaresPerSide) {
-    /* runs createSquare through a loop the same amount of times
+    /* Runs createSquare through a loop the same amount of times
     as squares that should be created  */
     removeGrid()
     for (let createdSquares = 0; createdSquares < squaresPerSide*squaresPerSide; createdSquares++) {
@@ -42,19 +42,25 @@ function removeGrid() {
     }
 }
 
-createGrid(10)
+createGrid(50)
 
-    //highlights the mouseenter target with color
+    //Highlights the mouseenter target with color
     grid.addEventListener("mouseover", function( event ) {
     event.target.style.backgroundColor = 'black';;
   })
 
-    //Listens for change in slider value
-    let slider = document.getElementById("range");
-    slider.addEventListener('change', function ( update ) {
-    console.log(slider.value)
-    createGrid(slider.value)
+    //Listens for slider-value change
+    let sliderValue = document.getElementById("range");
+    sliderValue.addEventListener('change', function ( update ) {
+    
+    //Creates grid based on new slider value
+    createGrid(sliderValue.value)
+})
 
-  })
-
-  console.log(gridCreated)
+    //Listens for slider-value input
+    let sliderInput = document.getElementById("range");
+    sliderInput.addEventListener('input', function ( update ) {
+        //Changes the DOM range-text
+        const sliderInputText = document.getElementById("currentRange");
+        sliderInputText.innerText = `${sliderInput.value}x${sliderInput.value}`
+    })
