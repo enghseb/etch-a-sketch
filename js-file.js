@@ -1,6 +1,6 @@
 let gridCreated = false;
 let squaresPerSide = 32
-let etchColor = "black"
+let etchColor = "grey"
 
 function setCssProperty(variable, property) {
     /*Changes a .css variable */
