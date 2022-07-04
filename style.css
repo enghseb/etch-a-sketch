@@ -1,0 +1,17 @@
+* {
+    border: solid red 1px;
+}
+
+#grid {
+    display: flex;
+    width: 450px;
+    flex-wrap: wrap;
+}
+
+
+
+#grid > div {
+    height: 25px;
+    width: 25px;
+    background-color: rgb(209, 207, 207); 
+}
