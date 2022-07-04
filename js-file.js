@@ -1,10 +1,12 @@
+let gridCreated = false;
+
 function setCssProperty(variable, property) {
     /*Changes a .css variable */
     document.documentElement.style
     .setProperty(variable, property)
 }
 
-function createSquares(squaresPerSide) {
+function createSquare(squaresPerSide) {
     /*Makes sure width and height is correct
         and creates one square */
     const square = document.createElement("div");
@@ -20,24 +22,39 @@ function createSquares(squaresPerSide) {
 
 squaresPerSide = 35
 
-/* runs createSquare through a loop the same amount of times
+function createGrid(squaresPerSide) {
+    /* runs createSquare through a loop the same amount of times
     as squares that should be created  */
-for (let createdSquares = 0; createdSquares < squaresPerSide*squaresPerSide; createdSquares++) {
-    createSquares(squaresPerSide)
-} 
+    removeGrid()
+    for (let createdSquares = 0; createdSquares < squaresPerSide*squaresPerSide; createdSquares++) {
+        createSquare(squaresPerSide)
+    }
+    gridCreated = true
+}
+
+function removeGrid() {
+    /* Removes current grid before creating new one */
+    if(gridCreated) {
+        document.getElementById("grid").innerHTML = "";
+    }
+    else {
+
+    }
+}
+
+createGrid(10)
 
     //highlights the mouseenter target with color
-  grid.addEventListener("mouseover", function( event ) {
+    grid.addEventListener("mouseover", function( event ) {
     event.target.style.backgroundColor = 'black';;
   })
 
-  let slider = document.getElementById("range");
-  let output = document.getElementById("value");
-  var outputVarNo = document.getElementById("outputVar");
+    //Listens for change in slider value
+    let slider = document.getElementById("range");
+    slider.addEventListener('input', function ( update ) {
+    console.log(slider.value)
+    createGrid(slider.value)
 
-  let update = () => output.innerHTML = slider.value;
-  console.log(slider.value)
+  })
 
-  slider.addEventListener('input', update);
-  update();
-  squaresPerSide = update;
+  console.log(gridCreated)
