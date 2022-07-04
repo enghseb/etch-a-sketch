@@ -11,8 +11,6 @@ function createSquares(squaresPerSide) {
 
     squareWidth = 400/squaresPerSide
     squareHeight = 400/squaresPerSide
-    console.log(`${squareWidth}px`)
-    console.log(`${squareHeight}px`)
     setCssProperty('--squareWidth-width', `${squareWidth}px`)
     setCssProperty('--squareHeight-height',`${squareHeight}px`)
 
@@ -33,3 +31,13 @@ for (let createdSquares = 0; createdSquares < squaresPerSide*squaresPerSide; cre
     event.target.style.backgroundColor = 'black';;
   })
 
+  let slider = document.getElementById("range");
+  let output = document.getElementById("value");
+  var outputVarNo = document.getElementById("outputVar");
+
+  let update = () => output.innerHTML = slider.value;
+  console.log(slider.value)
+
+  slider.addEventListener('input', update);
+  update();
+  squaresPerSide = update;
