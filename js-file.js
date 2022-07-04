@@ -1,4 +1,6 @@
 let gridCreated = false;
+let squaresPerSide = 32
+let etchColor = "black"
 
 function setCssProperty(variable, property) {
     /*Changes a .css variable */
@@ -11,6 +13,7 @@ function setButtonActive() {
     document.getElementById(buttonClickedId).id = buttonClickedNewId;
     lastActiveButton = buttonClickedId;
     buttonHasBeenClicked = true;
+    etchColor = buttonClickedId;
 }
 
 function createSquare(squaresPerSide) {
@@ -26,8 +29,6 @@ function createSquare(squaresPerSide) {
     const insertLocation = document.getElementById("grid");
     insertLocation.appendChild(square);
 }
-
-squaresPerSide = 35
 
 function createGrid(squaresPerSide) {
     /* Runs createSquare through a loop the same amount of times
@@ -49,11 +50,24 @@ function removeGrid() {
     }
 }
 
-createGrid(32)
+function changeEtchColor() {
+    if(etchColor == "black") {
+        event.target.style.backgroundColor = 'black';
+    } else if(etchColor == "rainbow") {
+        r = Math.floor(Math.random() * 255)
+        g = Math.floor(Math.random() * 255)
+        b = Math.floor(Math.random() * 255)
+        event.target.style.backgroundColor =  `rgb(${r}, ${g}, ${b})`;
+    } else if(etchColor == "erase") {
+        event.target.style.backgroundColor = "rgb(209, 207, 207)"
+    } else {
+        event.target.style.backgroundColor = 'black';
+    }
+}
 
     //Highlights the mouseenter target with color
     grid.addEventListener("mouseover", function( event ) {
-        event.target.style.backgroundColor = 'black';
+        changeEtchColor()
     })
 
     //Listens for slider-value change
@@ -81,11 +95,12 @@ createGrid(32)
 
             //Bugs out if same button is pressed twice without this
         } else if (buttonClickedId == `${lastActiveButton}-active`) {
-            
+
         } else {
             //Delete the "active" part of last click
             document.getElementById(`${lastActiveButton}-active`).id = lastActiveButton
             setButtonActive()
         }
-     
-    }
+     }
+
+createGrid(32)
