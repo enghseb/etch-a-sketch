@@ -9,11 +9,17 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="grid"></div>
-        <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="50" class="slider" id="range">
-            Value: <span id="value"></span>
-            Value: <span id="outputVar"></span>
-        </div>
+    <div id="grid">
+
+    </div>
+    <div class="slidecontainer">
+        <p id="currentRange">32x32</p>
+        <input type="range" min="1" max="64" value="32" class="slider" id="range">
+    </div>
+    <div class="buttons">
+        <button id="rainbow">Rainbow mode</button>
+        <button id="black">Black mode</button>
+        <button id="shade">Shade</button>
+        <button id="erase">Eraser</button>
 </body>
 </html>
