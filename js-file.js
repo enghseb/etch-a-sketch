@@ -51,7 +51,7 @@ createGrid(10)
 
     //Listens for change in slider value
     let slider = document.getElementById("range");
-    slider.addEventListener('input', function ( update ) {
+    slider.addEventListener('change', function ( update ) {
     console.log(slider.value)
     createGrid(slider.value)
 
