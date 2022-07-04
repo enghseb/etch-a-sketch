@@ -52,23 +52,19 @@ function removeGrid() {
 
 function changeEtchColor() {
     if(etchColor == "black") {
-        event.target.style.backgroundColor = 'black';
+        MouseHover.target.style.backgroundColor = 'black';
     } else if(etchColor == "rainbow") {
         r = Math.floor(Math.random() * 255)
         g = Math.floor(Math.random() * 255)
         b = Math.floor(Math.random() * 255)
-        event.target.style.backgroundColor =  `rgb(${r}, ${g}, ${b})`;
+        MouseHover.target.style.backgroundColor =  `rgb(${r}, ${g}, ${b})`;
     } else if(etchColor == "erase") {
-        event.target.style.backgroundColor = "rgb(209, 207, 207)"
+        MouseHover.target.style.backgroundColor = "rgb(209, 207, 207)"
     } else if(etchColor == "shade") {
         shadeColor()
     } else {
-        event.target.style.backgroundColor = 'black';
+        MouseHover.target.style.backgroundColor = 'black';
     }
-}
-
-function styleBackgroundColor(color) {
-    event.target.style.backgroundColor = color
 }
     
 function shadeColor(){
@@ -77,42 +73,43 @@ function shadeColor(){
     console.log(event.target.style.backgroundColor)
 
     //Color1
-    if(event.target.style.backgroundColor == "rgb(242, 244, 244)") {
-        event.target.style.backgroundColor = "rgb(229, 232, 232)"
+    if(MouseHover.target.style.backgroundColor == "rgb(242, 244, 244)") {
+        MouseHover.target.style.backgroundColor = "rgb(229, 232, 232)"
     //Color 2
-    } else if (event.target.style.backgroundColor == "rgb(229, 232, 232)") {
-        event.target.style.backgroundColor = "rgb(204, 209, 209)"
+    } else if (MouseHover.target.style.backgroundColor == "rgb(229, 232, 232)") {
+        MouseHover.target.style.backgroundColor = "rgb(204, 209, 209)"
     //Color 3
-    } else if (event.target.style.backgroundColor == "rgb(204, 209, 209)") {
-        event.target.style.backgroundColor = "rgb(178, 186, 187)"
+    } else if (MouseHover.target.style.backgroundColor == "rgb(204, 209, 209)") {
+        MouseHover.target.style.backgroundColor = "rgb(178, 186, 187)"
     //Color 4
-    } else if (event.target.style.backgroundColor == "rgb(178, 186, 187)") {
-        event.target.style.backgroundColor = "rgb(153, 163, 164)"
+    } else if (MouseHover.target.style.backgroundColor == "rgb(178, 186, 187)") {
+        MouseHover.target.style.backgroundColor = "rgb(153, 163, 164)"
     //Color 5
-    } else if (event.target.style.backgroundColor == "rgb(153, 163, 164)") {
-        event.target.style.backgroundColor = "rgb(127, 140, 141)"
+    } else if (MouseHover.target.style.backgroundColor == "rgb(153, 163, 164)") {
+        MouseHover.target.style.backgroundColor = "rgb(127, 140, 141)"
     //Color 6
-    } else if (event.target.style.backgroundColor == "rgb(127, 140, 141)") {
-        event.target.style.backgroundColor = "rgb(112, 123, 124)"
+    } else if (MouseHover.target.style.backgroundColor == "rgb(127, 140, 141)") {
+        MouseHover.target.style.backgroundColor = "rgb(112, 123, 124)"
     //Color 7
-    } else if (event.target.style.backgroundColor == "rgb(112, 123, 124)") {
-        event.target.style.backgroundColor = "rgb(97, 106, 107)"
+    } else if (MouseHover.target.style.backgroundColor == "rgb(112, 123, 124)") {
+        MouseHover.target.style.backgroundColor = "rgb(97, 106, 107)"
     //Color 8
-    } else if (event.target.style.backgroundColor == "rgb(97, 106, 107)") {
-        event.target.style.backgroundColor = "rgb(81, 90, 90)"
+    } else if (MouseHover.target.style.backgroundColor == "rgb(97, 106, 107)") {
+        MouseHover.target.style.backgroundColor = "rgb(81, 90, 90)"
     //Color 9
-    } else if (event.target.style.backgroundColor == "rgb(81, 90, 90)") {
-        event.target.style.backgroundColor = "rgb(66, 73, 73)"
+    } else if (MouseHover.target.style.backgroundColor == "rgb(81, 90, 90)") {
+        MouseHover.target.style.backgroundColor = "rgb(66, 73, 73)"
     //Color 10
-    } else if (event.target.style.backgroundColor == "rgb(66, 73, 73)") {
-        event.target.style.backgroundColor = "rgb(66, 73, 73)"
+    } else if (MouseHover.target.style.backgroundColor == "rgb(66, 73, 73)") {
+        MouseHover.target.style.backgroundColor = "rgb(66, 73, 73)"
     } else {
-        event.target.style.backgroundColor = "rgb(242, 244, 244)"
+        MouseHover.target.style.backgroundColor = "rgb(242, 244, 244)"
     }
 } 
 
     //Highlights the mouseenter target with color
     grid.addEventListener("mouseover", function( event ) {
+        MouseHover = event
         changeEtchColor()
     })
 
