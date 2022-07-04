@@ -52,21 +52,40 @@ function removeGrid() {
 
 function changeEtchColor() {
     if(etchColor == "black") {
-        event.target.style.backgroundColor = 'black';
+        mouseAction.target.style.backgroundColor = 'black';
     } else if(etchColor == "rainbow") {
         r = Math.floor(Math.random() * 255)
         g = Math.floor(Math.random() * 255)
         b = Math.floor(Math.random() * 255)
-        event.target.style.backgroundColor =  `rgb(${r}, ${g}, ${b})`;
+        mouseAction.target.style.backgroundColor =  `rgb(${r}, ${g}, ${b})`;
     } else if(etchColor == "erase") {
-        event.target.style.backgroundColor = "rgb(209, 207, 207)"
+        mouseAction.target.style.backgroundColor = "rgb(209, 207, 207)"
+    } else if(etchColor == "shade") {
+        shadeColor()
     } else {
-        event.target.style.backgroundColor = 'black';
+        mouseAction.target.style.backgroundColor = 'black';
     }
 }
 
+function shadeColor(){
+    console.log(mouseAction)
+    const bg = mouseAction.target.style.backgroundColor = "rgb(242, 244, 244)";
+    console.log(mouseAction.target.style.backgroundColor)
+    //Color1
+    if(mouseAction.target.style.backgroundColor == "rgb(242, 244, 244)") {
+        console.log("true")
+        mouseAction.target.style.backgroundColor = "rgb(229, 232, 232)"
+    //Color 2
+    } else if (mouseAction.target.style.backgroundColor == "rgb(229, 232, 232)") {
+        mouseAction.target.style.backgroundColor = "rgb(204, 209, 209)"
+    } else {
+        mouseAction.target.style.backgroundColor = "rgb(242, 244, 244)"
+        }
+} 
+
     //Highlights the mouseenter target with color
     grid.addEventListener("mouseover", function( event ) {
+        mouseAction = event
         changeEtchColor()
     })
 
@@ -86,7 +105,7 @@ function changeEtchColor() {
     })
 
     buttonHasBeenClicked = false;
-    //Listens for button click
+    //Listens for click on button
     const buttonContainer = document.querySelector(".buttons");
     buttonContainer.onclick = function (event) {
         buttonClickedId = event.target.id;
@@ -104,3 +123,9 @@ function changeEtchColor() {
      }
 
 createGrid(32)
+
+
+
+/* om div class är tom, rita grå 1 och sätt div class till grå 1
+     om div class är 1, rita grå 2 och sätt div class till grå 2
+     om div class är 2, rita grå 2 och sätt div class till grå 3 */
